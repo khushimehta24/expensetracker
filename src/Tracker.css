@@ -1,0 +1,22 @@
+
+
+.listItems{
+    width: 90%;
+    background-color: #F5F6F9;
+    color: #454C59;
+    font-family: 'Readex Pro', sans-serif;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.income{
+    border: 2px solid #0EC576;
+}
+
+.expense{
+    border: 2px solid #EA4C89;
+}
