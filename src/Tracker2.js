@@ -116,12 +116,12 @@ function Tracker2() {
                     </Grid>
                     <Grid item md={12} sx={{ width: '100%' }}>
                         <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Grid item md={5} >
+                            <Grid item md={5} xs={5} sm={5}>
                                 <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '800', color: '#0EC576', textAlign: 'center', }}>Income</p>
                                 <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '800', color: '#454C59', textAlign: 'center' }}><FaRupeeSign /> {income}</p>
                             </Grid>
-                            <Grid item md={2}></Grid>
-                            <Grid item md={5}>
+                            <Grid item md={2} xs={2} sm={2}></Grid>
+                            <Grid item md={5} xs={5} sm={5}>
                                 <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '800', color: '#EA4C89', textAlign: 'center' }}>Expense</p>
                                 <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '800', color: '#454C59', textAlign: 'center' }}><FaRupeeSign /> {expense}</p>
                             </Grid>
