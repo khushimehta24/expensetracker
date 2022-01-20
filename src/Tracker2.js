@@ -110,7 +110,7 @@ function Tracker2() {
     return (
         <div>
             <div className="createList" style={{ width: '100vw', marginTop: '2%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-                <Grid container sx={{ width: '30%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+                <Grid container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }} className='incomeExpenseCard'>
                     <Grid item md={12}>
                         <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '900', color: '#454C59', textAlign: 'center' }}>Total amount left   <FaRupeeSign /> {income}</p>
                     </Grid>

@@ -12,6 +12,10 @@
     padding-left: 10px;
 }
 
+.incomeExpenseCard{
+    width: 30%;
+}
+
 .income{
     background-color: #0ec57625;
 }
@@ -19,3 +23,9 @@
 .expense{
     background-color:  #ea4c8934;
 }
+
+@media only screen and (max-width: 880px) {
+    .incomeExpenseCard{
+        width: 100%;
+    }
+  }
