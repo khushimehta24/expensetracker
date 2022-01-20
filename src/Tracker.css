@@ -6,7 +6,6 @@
     color: #454C59;
     font-family: 'Readex Pro', sans-serif;
     height: 100%;
-    border-radius: 5px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -14,9 +13,9 @@
 }
 
 .income{
-    border: 2px solid #0EC576;
+    background-color: #0ec57625;
 }
 
 .expense{
-    border: 2px solid #EA4C89;
+    background-color:  #ea4c8934;
 }

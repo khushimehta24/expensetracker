@@ -11,6 +11,15 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useHistory } from 'react-router-dom';
 import { FaRupeeSign } from 'react-icons/fa'
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 const button = {
     marginLeft: '-1vw',
     alignItems: 'center',
@@ -30,6 +39,25 @@ const AddBtn = {
 }
 
 function Tracker2() {
+    const StyledTableCell = styled(TableCell)(({ theme }) => ({
+        [`&.${tableCellClasses.head}`]: {
+            backgroundColor: theme.palette.common.black,
+            color: theme.palette.common.white,
+        },
+        [`&.${tableCellClasses.body}`]: {
+            fontSize: 14,
+        },
+    }));
+
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
+        // hide last border
+        '&:last-child td, &:last-child th': {
+            border: 0,
+        },
+    }));
     const [list, setList] = useState({ name: '', amount: '', mode_of_transaction: '', date: '', description: '' });
     const [items, setItems] = useState([]);
     const [editSingleItem, setEditSingleItem] = useState('Add');
@@ -137,7 +165,7 @@ function Tracker2() {
                             </Grid>
                         </Grid>
                         <p style={{ fontFamily: 'Readex Pro, sans-serif', fontWeight: '800', color: '#454C59' }}>Your Transactions</p>
-                        {
+                        {/* {
                             items.map((itemInList) => {
                                 return <>
                                     <Grid container spacing={3} columns={16} mb={2} key={itemInList.id}>
@@ -167,9 +195,24 @@ function Tracker2() {
                                     </Grid>
                                 </>
                             })
-
-
-                        }
+                        } */}
+                        <TableContainer component={Paper} sx={{ marginTop: '5%', width: '98%' }}>
+                            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                                <TableBody>
+                                    {items.map((itemInList) => {
+                                        return <StyledTableRow key={itemInList.id}>
+                                            <StyledTableCell component="th" scope="row" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}> {itemInList.name}</StyledTableCell>
+                                            <StyledTableCell align="left" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}>{itemInList.amount}</StyledTableCell>
+                                            <StyledTableCell align="left" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}>{itemInList.mode_of_transaction}</StyledTableCell>
+                                            <StyledTableCell align="left" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}>{itemInList.date}</StyledTableCell>
+                                            <StyledTableCell align="left" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}>{itemInList.description}</StyledTableCell>
+                                            <StyledTableCell align="left" className={itemInList.amount > 0 ? 'income listItems' : 'expense listItems'} style={{ width: '10%' }}><EditIcon sx={{ width: '20px', height: '20px', marginRight: '5px', color: '#0EC576' }} onClick={() => editItem(itemInList.id)} />
+                                                <DeleteIcon sx={{ width: '20px', height: '20px', color: '#EA4C89' }} onClick={() => deleteItem(itemInList.id)} /></StyledTableCell>
+                                        </StyledTableRow>
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </CardContent>
                 </Card>
             </div>
@@ -178,3 +221,5 @@ function Tracker2() {
 }
 
 export default Tracker2
+
+
